@@ -1,58 +1,104 @@
 package com.example.dreamhome
 
+import android.graphics.Paint.Align
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
-import com.example.dreamhome.databinding.ActivityMainBinding
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
+import com.example.dreamhome.ui.theme.DreamHomeTheme
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
-
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        setSupportActionBar(binding.toolbar)
-
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        setContent {
+            DreamHomeTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    Greeting("Android")
+                }
+            }
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
     }
 }
+
+@Composable
+fun Greeting(name: String) {
+
+    BottomAppBarExample()
+
+    ConstraintLayout() {
+        val (searchEdittext, mapView) = createRefs()
+
+    }
+}
+
+@Composable
+fun BottomAppBarExample() {
+    val scaffoldState = rememberScaffoldState()
+
+    Scaffold (
+        scaffoldState = scaffoldState,
+        bottomBar = {
+            BottomAppBar{
+                Button(
+                    onClick = {},
+                    modifier = Modifier.weight(1f)) {
+                    Column {
+                        Icon(
+                            imageVector = Icons.Filled.KeyboardArrowRight,
+                            contentDescription = "",
+                            modifier = Modifier.size(25.dp).align(Alignment.CenterHorizontally)
+                        )
+                        Text(text = "홈", modifier = Modifier.align(Alignment.CenterHorizontally))
+                    }
+                }
+                Button(
+                    onClick = {},
+                    modifier = Modifier.weight(1f)
+                ){
+                    Text("지도")
+                }
+                Button(
+                    onClick = {},
+                    modifier = Modifier.weight(1f)
+                ){
+                    Text("찜 목록")
+                }
+                Button(
+                    onClick = {},
+                    modifier = Modifier.weight(1f)
+                ){
+                    Text("더보기")
+                }
+            }
+        }
+    ) {}
+
+
+
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    DreamHomeTheme {
+        Greeting("Android")
+    }
+}
+
+
+
