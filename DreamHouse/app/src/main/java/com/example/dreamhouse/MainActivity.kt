@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -18,6 +19,7 @@ import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.FocusRequester.Companion.createRefs
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -56,7 +58,7 @@ fun BottomAppBarExample() {
                     BottomAppBar(backgroundColor = Color(0xFFF9F9F9))
             {
                 Button(
-                    border = BorderStroke(0.dp, Color(0xFFF9F9F9)),
+//                    border = BorderStroke(0.dp, Color(0xFFF9F9F9)),
                     shape = RoundedCornerShape(0.dp),
                     onClick = {},
                     colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF9F9F9)),
@@ -74,7 +76,7 @@ fun BottomAppBarExample() {
                     }
                 }
                 Button(
-                    border = BorderStroke(0.dp, Color(0xFFF9F9F9)),
+//                    border = BorderStroke(0.dp, Color(0xFFF9F9F9)),
                     shape = RoundedCornerShape(0.dp),
                     onClick = {},
                     colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF9F9F9)),
@@ -92,7 +94,7 @@ fun BottomAppBarExample() {
                     }
                 }
                 Button(
-                    border = BorderStroke(0.dp, Color(0xFFF9F9F9)),
+//                    border = BorderStroke(0.dp, Color(0xFFF9F9F9)),
                     shape = RoundedCornerShape(0.dp),
                     onClick = {},
                     colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF9F9F9)),
@@ -110,7 +112,7 @@ fun BottomAppBarExample() {
                     }
                 }
                 Button(
-                    border = BorderStroke(0.dp, Color(0xFFF9F9F9)),
+//                    border = BorderStroke(0.dp, Color(0xFFF9F9F9)),
                     shape = RoundedCornerShape(0.dp),
                     onClick = {},
                     colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF9F9F9)),
